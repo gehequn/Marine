@@ -33,32 +33,6 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="javascript:void(0)"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="mailbox.html">收件箱</a>
-                    </li>
-                    <li><a href="mail_detail.html">查看邮件</a>
-                    </li>
-                    <li><a href="mail_compose.html">写信</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.html#"><i class="fa fa-files-o"></i> <span class="nav-label">其他页面</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="search_results.html">搜索结果</a>
-                    </li>
-                    <li><a href="lockscreen.html">登录超时</a>
-                    </li>
-                    <li><a href="404.html">404页面</a>
-                    </li>
-                    <li><a href="500.html">500页面</a>
-                    </li>
-                    <li><a href="empty_page.html">空白页</a>
-                    </li>
-                </ul>
-            </li>
         </ul>
 
     </div>

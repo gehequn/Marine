@@ -3,6 +3,7 @@ package com.bgi.marine.bean;
 import com.bgi.marine.bean.common.BaseModel;
 import lombok.Builder;
 import lombok.Data;
+
 import java.io.Serializable;
 
 @Data

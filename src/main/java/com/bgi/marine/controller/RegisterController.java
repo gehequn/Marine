@@ -17,13 +17,13 @@ public class RegisterController {
     private RegisterService registerService;
 
     @RequestMapping("/init")
-    public String init(){
+    public String init() {
         return "register";
     }
 
-    @RequestMapping(value = "/register" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseMap register(@ModelAttribute RegisterDto registerDto, HttpSession session){
-        return registerService.register(registerDto,session);
+    public ResponseMap register(@ModelAttribute RegisterDto registerDto, HttpSession session) {
+        return registerService.register(registerDto, session);
     }
 }

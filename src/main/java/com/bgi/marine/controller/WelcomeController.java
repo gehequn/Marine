@@ -29,25 +29,25 @@ public class WelcomeController {
 
     @RequestMapping("/record")
     @ResponseBody
-    public String welcome(@ModelAttribute LoginDto loginDto){
+    public String welcome(@ModelAttribute LoginDto loginDto) {
         List<UserVo> list = new ArrayList<UserVo>();
         UserVo userVo;
-        int i=1;
-        while (i<=3){
+        int i = 1;
+        while (i <= 3) {
             userVo = new UserVo();
             userVo.setId(i);
-            userVo.setUserName("name"+i);
-            userVo.setNickName("nickName"+i);
-            userVo.setEmailAddress("address"+i);
+            userVo.setUserName("name" + i);
+            userVo.setNickName("nickName" + i);
+            userVo.setEmailAddress("address" + i);
             list.add(userVo);
             i++;
         }
         String json = null;
         try {
             json = JsonUtil.parseJson(list);
-            json =  "{\"total\":" + 3 + ",\"rows\":" + json
+            json = "{\"total\":" + 3 + ",\"rows\":" + json
                     + "}";
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error(e.getMessage());
         }
         return json;

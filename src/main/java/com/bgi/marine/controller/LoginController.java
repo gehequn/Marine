@@ -4,8 +4,6 @@ import com.bgi.marine.bean.common.ResponseMap;
 import com.bgi.marine.dto.LoginDto;
 import com.bgi.marine.service.LoginService;
 import com.bgi.marine.util.CommonUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,24 +16,22 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/Login")
 public class LoginController {
 
-    private Logger logger = LoggerFactory.getLogger(LoginController.class);
-
     @Resource
     private LoginService loginService;
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping("/welcome")
     @ResponseBody
-    public ResponseMap welcome(@ModelAttribute LoginDto loginDto, HttpSession session){
-        return loginService.login(loginDto,session);
+    public ResponseMap welcome(@ModelAttribute LoginDto loginDto, HttpSession session) {
+        return loginService.login(loginDto, session);
     }
 
     @RequestMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         CommonUtil.removeSession(session);
         return "login";
     }
