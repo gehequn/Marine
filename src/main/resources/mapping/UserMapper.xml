@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bgi.marine.dao.UserDao">
+
+    <resultMap id="UserBaseMap" type="com.bgi.marine.bean.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="email_address" property="emailAddress" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="SMALLINT"/>
+    </resultMap>
+
+    <insert id="create" parameterType="com.bgi.marine.bean.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_info
+        (
+          user_name,
+          nick_name,
+          password,
+          email_address,
+          mobile,
+          is_deleted
+        )
+        VALUES (
+          #{userName},
+          #{nickName},
+          #{password},
+          #{emailAddress},
+          #{mobile},
+          #{isDeleted}
+        )
+    </insert>
+
+    <select id="queryUserByName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM
+        user_info
+        WHERE user_name  = #{userName}
+    </select>
+
+    <select id="queryUserByEmailAddress" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM
+        user_info
+        WHERE email_address  = #{emailAddress}
+    </select>
+
+    <select id="queryByName" parameterType="java.lang.String" resultType="com.bgi.marine.bean.vo.UserVo">
+        SELECT
+          id AS id,
+          user_name AS userName,
+          nick_name AS nickName,
+          password AS password
+        FROM
+          user_info
+        WHERE
+          user_name = #{userName}
+          AND is_deleted = 0
+    </select>
+
+    <select id="queryById" parameterType="java.lang.Integer" resultType="com.bgi.marine.bean.vo.UserVo">
+        select
+          user_name AS userName,
+          nick_name AS nickName,
+          password AS password,
+          email_address AS emailAddress
+        FROM
+          user_info
+        WHERE
+          id = #{userId}
+          AND is_deleted = 0
+    </select>
+</mapper>
