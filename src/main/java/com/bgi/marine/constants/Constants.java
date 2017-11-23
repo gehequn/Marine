@@ -19,4 +19,7 @@ public class Constants {
 
     /** 超级管理员中文 */
     public static final String ADMIN_NAME = "管理员";
+
+    /** 菜单栏顶级0代号 */
+    public static final String TOP_CODE = "0";
 }

@@ -38,9 +38,27 @@
                 <property name="excludedUrls">
                     <list>
                         <value>/Login/login</value>
+                        <value>/Login/logout</value>
                         <value>/Login/welcome</value>
                         <value>/Register/init</value>
                         <value>/Register/register</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.bgi.marine.interceptor.PrivilegeInterceptor">
+                <property name="excludedUrls">
+                    <list>
+                        <value>/Login/login</value>
+                        <value>/Login/logout</value>
+                        <value>/Login/welcome</value>
+                        <value>/Register/init</value>
+                        <value>/Register/register</value>
+                        <value>/User/userInfo</value>
+                        <value>/Error/privilege</value>
+                        <value>/Welcome/init</value>
                     </list>
                 </property>
             </bean>
@@ -52,6 +70,7 @@
         <property name="exceptionMappings">
             <props>
                 <prop key="com.bgi.marine.exception.AuthorizationException">redirect:/Login/login</prop>
+                <prop key="com.bgi.marine.exception.PrivilegeException">redirect:/Error/privilege</prop>
             </props>
         </property>
     </bean>

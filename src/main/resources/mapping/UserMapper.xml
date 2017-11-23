@@ -49,7 +49,8 @@
           id AS id,
           user_name AS userName,
           nick_name AS nickName,
-          password AS password
+          password AS password,
+          user_type AS userType
         FROM
           user_info
         WHERE
@@ -62,7 +63,8 @@
           user_name AS userName,
           nick_name AS nickName,
           password AS password,
-          email_address AS emailAddress
+          email_address AS emailAddress,
+          user_type AS userType
         FROM
           user_info
         WHERE

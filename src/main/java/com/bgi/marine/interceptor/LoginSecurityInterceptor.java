@@ -1,6 +1,10 @@
 package com.bgi.marine.interceptor;
 
+import com.bgi.marine.bean.vo.Privilege;
+import com.bgi.marine.constants.Constants;
+import com.bgi.marine.constants.LoginConstants;
 import com.bgi.marine.exception.AuthorizationException;
+import com.bgi.marine.exception.PrivilegeException;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +38,10 @@ public class LoginSecurityInterceptor implements HandlerInterceptor {
         //处理需要拦截的url
         HttpSession session = request.getSession();
         if (null == session.getAttribute("userId")){
-            //TODO 打印日志
+            //处理无session的用户
             throw new AuthorizationException();
-        } else {
-            return true;
         }
+        return true;
     }
 
     @Override

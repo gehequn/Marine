@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head></head>
 <body>
@@ -24,15 +25,19 @@
                     H+
                 </div>
             </li>
+            <c:forEach items="${menuList}" var="menu" varStatus="vs">
             <li>
-                <a href="#"><i class="fa fa-columns"></i> <span class="nav-label">项目管理</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="#">我的任务</a>
-                    </li>
-                    <li><a href="#">新建任务</a>
-                    </li>
-                </ul>
+                <a href="${menu.menuUrl}"><i class="fa fa-columns"></i> <span class="nav-label">${menu.menuName}</span><span class="fa arrow"></span></a>
+                <c:if test="${not empty menu.childMenu}">
+                    <c:forEach items="${menu.childMenu}" var="childMenu">
+                        <ul class="nav nav-second-level">
+                            <li><a href="${childMenu.menuUrl}">${childMenu.menuName}</a>
+                            </li>
+                        </ul>
+                    </c:forEach>
+                </c:if>
             </li>
+            </c:forEach>
         </ul>
 
     </div>

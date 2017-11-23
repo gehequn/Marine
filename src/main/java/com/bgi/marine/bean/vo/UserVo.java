@@ -19,5 +19,6 @@ public class UserVo implements Serializable{
     private String nickName;
     private String password;
     private String emailAddress;
+    private int userType;
 
 }

@@ -1,7 +1,9 @@
 package com.bgi.marine.controller;
 
 import com.bgi.marine.bean.vo.UserVo;
+import com.bgi.marine.constants.LoginConstants;
 import com.bgi.marine.service.UserService;
+import com.bgi.marine.util.CommonUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,9 +20,10 @@ public class UserController {
 
     @RequestMapping("/userInfo")
     public String userInfo(HttpSession session, HttpServletRequest request) {
-        Integer userId = (Integer) session.getAttribute("userId");
+        Integer userId = (Integer) session.getAttribute(LoginConstants.USER_ID);
         UserVo user = userService.getUserInfo(userId);
         request.setAttribute("userInfo", user);
+        CommonUtil.setRequest(session, request);
         return "userInfo";
     }
 }

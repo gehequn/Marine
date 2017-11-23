@@ -1,9 +1,12 @@
 package com.bgi.marine.agent;
 
-import com.bgi.marine.bean.vo.MenuVo;
+import com.bgi.marine.bean.Menu;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface PrivilegeAgent {
-    ArrayList<MenuVo> loadUserMenu(int userId);
+
+    List<Menu> loadUserMenu();
+
+    List<Menu> loadUserMenu(int userId);
 }

@@ -1,7 +1,9 @@
 package com.bgi.marine.util;
 
 import com.bgi.marine.bean.common.ResponseMap;
+import com.bgi.marine.bean.vo.Privilege;
 import com.bgi.marine.constants.Constants;
+import com.bgi.marine.constants.LoginConstants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -53,7 +55,8 @@ public class CommonUtil {
     }
 
     public static void setRequest(HttpSession session, HttpServletRequest request){
-        request.setAttribute("userName", !session.getAttribute("userName").equals(Constants.ADMIN) ? session.getAttribute("userName") : Constants.ADMIN_NAME);
+        request.setAttribute(LoginConstants.USER_NAME, !session.getAttribute(Constants.USER_NAME).equals(Constants.ADMIN) ? session.getAttribute(Constants.USER_NAME) : Constants.ADMIN_NAME);
+        request.setAttribute(LoginConstants.MENU_LIST,((Privilege)session.getAttribute(LoginConstants.USER_PRIVILEGE)).getMenuList());
     }
 
     public static void removeSession(HttpSession session){
