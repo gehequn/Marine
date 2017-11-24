@@ -1,7 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%--<% String userName = (String)request.getAttribute("userName");%>--%>
+<%
+//    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+%>
 <html>
-<head></head>
+<head>
+    <base href="<%=basePath%>">
+</head>
 <body>
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
@@ -31,7 +38,7 @@
                 <c:if test="${not empty menu.childMenu}">
                     <c:forEach items="${menu.childMenu}" var="childMenu">
                         <ul class="nav nav-second-level">
-                            <li><a href="${childMenu.menuUrl}">${childMenu.menuName}</a>
+                            <li><a href="${basePath}/${childMenu.menuUrl}">${childMenu.menuName}</a>
                             </li>
                         </ul>
                     </c:forEach>
@@ -39,7 +46,6 @@
             </li>
             </c:forEach>
         </ul>
-
     </div>
 </nav>
 </body>

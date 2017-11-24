@@ -5,6 +5,7 @@ import com.bgi.marine.constants.Constants;
 import com.bgi.marine.constants.LoginConstants;
 import com.bgi.marine.exception.AuthorizationException;
 import com.bgi.marine.exception.PrivilegeException;
+import com.bgi.marine.javaEnum.Ajax;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,6 +37,12 @@ public class PrivilegeInterceptor implements HandlerInterceptor {
         List<String> urlList = ((Privilege)session.getAttribute(LoginConstants.USER_PRIVILEGE)).getMenuUrlList();
         for (String url : urlList){
             if (requestUri.endsWith(url)){
+                return true;
+            }
+        }
+        //处理ajax的url
+        for (Ajax ajaxUrl : Ajax.values()){
+            if (ajaxUrl.getUrl().endsWith(requestUri)){
                 return true;
             }
         }
