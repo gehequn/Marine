@@ -6,7 +6,7 @@
     <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="/Welcome/init"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+            <form role="search" class="navbar-form-custom" method="post" action="#">
                 <div class="form-group">
                     <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
                 </div>
@@ -24,7 +24,7 @@
                     <li>
                         <div class="dropdown-messages-box">
                             <a href="profile.html" class="pull-left">
-                                <img alt="image" class="img-circle" src="img/a7.jpg">
+                                <img alt="image" class="img-circle" src="../img/a7.jpg">
                             </a>
                             <div class="media-body">
                                 <small class="pull-right">46小时前</small>
@@ -38,7 +38,7 @@
                     <li>
                         <div class="dropdown-messages-box">
                             <a href="profile.html" class="pull-left">
-                                <img alt="image" class="img-circle" src="img/a4.jpg">
+                                <img alt="image" class="img-circle" src="../img/a4.jpg">
                             </a>
                             <div class="media-body ">
                                 <small class="pull-right text-navy">25小时前</small>
