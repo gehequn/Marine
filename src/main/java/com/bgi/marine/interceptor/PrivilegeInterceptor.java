@@ -47,7 +47,6 @@ public class PrivilegeInterceptor implements HandlerInterceptor {
             }
         }
         throw new PrivilegeException();
-
     }
 
     @Override

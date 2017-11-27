@@ -1,14 +1,14 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>Bootstrap 实例</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../pages/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../pages/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../../pages/css/style.css">
-    <link rel="stylesheet" href="../../pages/css/animate.css">
+    <link rel="stylesheet" href="../../pages/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../pages/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../pages/css/bootstrap/style.css">
+    <link rel="stylesheet" href="../../pages/css/bootstrap/animate.css">
     <script src="../../pages/js/jquery-2.1.1.min.js"></script>
     <script src="../../pages/js/bootstrap.min.js"></script>
     <script src="../../pages/js/marine/login.js"></script>

@@ -6,7 +6,7 @@
     <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="/Welcome/init"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" method="post" action="#">
+            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                 <div class="form-group">
                     <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
                 </div>
@@ -14,17 +14,17 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <span class="m-r-sm text-muted welcome-message"><a href="welcome.jsp" title="返回首页"><i class="fa fa-home"></i></a></span>
+                <span class="m-r-sm text-muted welcome-message"><a href="index.html" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用H+后台主题</span>
             </li>
             <li class="dropdown">
-                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="welcome.jsp#">
-                    <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
+                    <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
                         <div class="dropdown-messages-box">
                             <a href="profile.html" class="pull-left">
-                                <img alt="image" class="img-circle" src="../img/a7.jpg">
+                                <img alt="image" class="img-circle" src="../../pages/img/a7.jpg">
                             </a>
                             <div class="media-body">
                                 <small class="pull-right">46小时前</small>
@@ -38,7 +38,7 @@
                     <li>
                         <div class="dropdown-messages-box">
                             <a href="profile.html" class="pull-left">
-                                <img alt="image" class="img-circle" src="../img/a4.jpg">
+                                <img alt="image" class="img-circle" src="../../pages/img/a4.jpg">
                             </a>
                             <div class="media-body ">
                                 <small class="pull-right text-navy">25小时前</small>
@@ -52,7 +52,7 @@
                     <li>
                         <div class="text-center link-block">
                             <a href="mailbox.html">
-                                <i class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
+                                <i class="fa fa-envelope"></i>  <strong> 查看所有消息</strong>
                             </a>
                         </div>
                     </li>
@@ -60,7 +60,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
-                    <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                    <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -91,13 +91,14 @@
                     </li>
                 </ul>
             </li>
+
+
             <li>
                 <a href="/Login/logout">
                     <i class="fa fa-sign-out"></i> 退出
                 </a>
             </li>
         </ul>
-
     </nav>
 </div>
 </body>

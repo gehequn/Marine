@@ -5,8 +5,8 @@
     <title>项目管理系统</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../pages/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../pages/css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap/style.css">
     <script src="../../pages/js/jquery-2.1.1.min.js"></script>
     <script src="../../pages/js/bootstrap.min.js"></script>
     <script src="../../pages/js/layer.min.js"></script>
