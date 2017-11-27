@@ -34,7 +34,7 @@ public class PrivilegeServiceImpl implements PrivilegeService {
             //添加用户可以看到的菜单url
             urlList.add(menu.getMenuUrl());
             if (menu.getParentMenu().equals(Constants.TOP_CODE)) {
-                userMenuList.add(MenuVo.builder().menuCode(menu.getMenuCode()).menuName(menu.getMenuName()).menuType(menu.getMenuType()).menuUrl(menu.getMenuUrl()).childMenu(new ArrayList<>()).build());
+                userMenuList.add(MenuVo.builder().menuCode(menu.getMenuCode()).menuName(menu.getMenuName()).menuType(menu.getMenuType()).menuUrl(menu.getMenuUrl()).menuClass(menu.getMenuClass()).childMenu(new ArrayList<>()).build());
             } else {
                 if (userMenuList.size() > 0) {
                     for (MenuVo menuVo : userMenuList) {

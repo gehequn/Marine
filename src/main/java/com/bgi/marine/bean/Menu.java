@@ -21,4 +21,5 @@ public class Menu extends BaseModel implements Serializable {
     private Integer menuType;
     private String menuUrl;
     private String parentMenu;
+    private String menuClass;
 }

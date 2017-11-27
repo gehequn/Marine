@@ -20,6 +20,7 @@
           menu_type,
           menu_url,
           parent_menu,
+          menu_class,
           is_deleted
         )
         VALUES (
@@ -28,6 +29,7 @@
           #{menuType},
           #{menuUrl},
           #{parentMenu},
+          #{menuClass},
           #{isDeleted}
         )
     </insert>
@@ -54,6 +56,7 @@
             menu_type AS menuType,
             menu_url AS menuUrl,
             parent_menu AS parentMenu,
+            menu_class AS menuClass,
             is_deleted AS isDeleted
         FROM
             menu_info

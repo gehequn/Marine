@@ -15,5 +15,6 @@ public class MenuVo implements Serializable {
     private String menuName;
     private String menuUrl;
     private int menuType;
+    private String menuClass;
     private ArrayList<MenuVo> childMenu;
 }

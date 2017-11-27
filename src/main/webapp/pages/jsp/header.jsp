@@ -6,7 +6,7 @@
     <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="/Welcome/init"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+            <form role="search" class="navbar-form-custom" method="post" action="#">
                 <div class="form-group">
                     <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
                 </div>
@@ -14,11 +14,11 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <span class="m-r-sm text-muted welcome-message"><a href="index.html" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用H+后台主题</span>
+                <span class="m-r-sm text-muted welcome-message"><a href="/Welcome/init" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用项目管理软件</span>
             </li>
             <li class="dropdown">
-                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="index.html#">
-                    <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="/Welcome/init#">
+                    <i class="fa fa-envelope"></i><span class="label label-warning">16</span>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
