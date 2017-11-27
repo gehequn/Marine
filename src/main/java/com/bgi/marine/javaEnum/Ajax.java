@@ -1,7 +1,8 @@
 package com.bgi.marine.javaEnum;
 
 public enum Ajax {
-    WELCOME_RECORD("/Welcome/record");
+    Welcome_Record("/Welcome/record"),
+    Organization_GetTree("/Organization/getTree");
 
     private String url;
 
