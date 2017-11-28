@@ -8,11 +8,12 @@ import java.io.Serializable;
 
 @Builder
 @Data
-public class Orginization extends BaseModel implements Serializable {
+public class Organization extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 4607613548452865383L;
 
-    private String OrgName;
+    private String orgName;
+    private String orgCode;
     private int parentId;
     private int type;
 }

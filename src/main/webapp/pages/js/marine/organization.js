@@ -4,11 +4,11 @@ $(document).ready(function(){
         type:"POST",
         dateType:"json",
         success:function (data) {
-            alert(2);
-            alert(data);
-            $('#treeView').treeview({
-                data: data.message
-            });
+            if (data.flag == 0){
+                $('#treeView').treeview({
+                    data: data.message
+                });
+            }
         },
         error:function (xhr) {
             alert(xhr.responseText);
