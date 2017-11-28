@@ -22,4 +22,7 @@ public class Constants {
 
     /** 菜单栏顶级0代号 */
     public static final String TOP_CODE = "0";
+
+    /** 组织树顶级部门 */
+    public static final int TOP_ORGANIZATION_ID = 0;
 }
