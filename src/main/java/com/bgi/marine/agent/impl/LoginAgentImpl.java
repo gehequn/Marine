@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * Created by GeHeQun on 2017/5/12.
- */
 @Service
 public class LoginAgentImpl implements LoginAgent {
 

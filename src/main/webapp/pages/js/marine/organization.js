@@ -5,6 +5,7 @@ $(document).ready(function(){
         dateType:"json",
         success:function (data) {
             if (data.flag == 0){
+                alert(data.message);
                 $('#treeView').treeview({
                     data: data.message
                 });
