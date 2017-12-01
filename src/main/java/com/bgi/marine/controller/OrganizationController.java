@@ -33,6 +33,12 @@ public class OrganizationController {
     }
     ///Organization/getTree
 
+    @RequestMapping("/editInit")
+    public String editInit(HttpServletRequest request, HttpSession session){
+        CommonUtil.setRequest(session, request);
+        return "organizationEdit";
+    }
+
     @RequestMapping("/getTree")
     @ResponseBody
     public ResponseMap getTree(){

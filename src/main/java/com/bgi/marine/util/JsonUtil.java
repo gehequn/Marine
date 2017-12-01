@@ -29,34 +29,20 @@ public class JsonUtil {
     }
 
     private static void getChildOrganizationJson(List<OrganizationVo> childOrgList) {
-        for (int i = 0 ; i < childOrgList.size() ; i++){
-            OrganizationVo organizationVo = childOrgList.get(0);
-            resultOrgJson += "{\"text\":\"" + organizationVo.getOrgName() + "\"";
+        for (int i = 0; i < childOrgList.size(); i++) {
+            OrganizationVo organizationVo = childOrgList.get(i);
+            resultOrgJson += "{\"text\":\"" + organizationVo.getOrgName() + "\",\"id\":\"" + organizationVo.getId() + "\"";
             if (organizationVo.getChildOrg() != null && organizationVo.getChildOrg().size() > 0) {
                 resultOrgJson += ",\"nodes\":[";
                 getChildOrganizationJson(organizationVo.getChildOrg());
                 resultOrgJson += "]}";
             } else {
-                if (i == childOrgList.size()-1) {
+                if (i == childOrgList.size() - 1) {
                     resultOrgJson += "}";
                 } else {
-                    resultOrgJson += "}，";
+                    resultOrgJson += "},";
                 }
             }
         }
-//        for (OrganizationVo organizationVo : childOrgList) {
-//            resultOrgJson += "{text:\"" + organizationVo.getOrgName() + "\",id:\"" + organizationVo.getId()+"\"";
-//            if (organizationVo.getChildOrg() != null && organizationVo.getChildOrg().size() > 0) {
-//                resultOrgJson += ",node:[";
-//                getChildOrganizationJson(organizationVo.getChildOrg());
-//                resultOrgJson += "]";
-//            } else {
-//                if (childOrgList.indexOf(organizationVo) == (childOrgList.size() + 1)) {
-//                    resultOrgJson += "}";
-//                } else {
-//                    resultOrgJson += "}，";
-//                }
-//            }
-//        }
     }
 }

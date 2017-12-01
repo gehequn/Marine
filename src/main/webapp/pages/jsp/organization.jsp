@@ -28,10 +28,19 @@
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <!-- 状态搜索栏 -->
         <jsp:include page="header.jsp"/>
-        <div class="col-sm-4">
-            <div class="ibox float-e-margins">
-                <div class="ibox-content">
-                    <div id="treeView"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-primary ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">组织树</h3>
+                        </div>
+                        <div class="ibox float-e-margins right_content">
+                            <div class="ibox-content">
+                                <div id="treeView"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
