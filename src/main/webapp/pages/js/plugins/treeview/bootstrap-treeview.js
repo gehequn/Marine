@@ -263,7 +263,6 @@
         var _this = this;
         $.each(node.nodes, function checkStates(index, node) {
 
-            // nodeId : unique, incremental identifier
             node.nodeId = _this.nodes.length;
 
             // parentId : transversing up the tree
@@ -349,7 +348,7 @@
     // data attribute nodeid, which is used to lookup the node in the flattened structure.
     Tree.prototype.findNode = function (target) {
 
-        var nodeId = target.closest('li.list-group-item').attr('data-nodeid');
+        var nodeId = target.closest('li.list-group-item').attr('data-nodeId');
         var node = this.nodes[nodeId];
 
         if (!node) {
@@ -517,7 +516,8 @@
                 .addClass(node.state.disabled ? 'node-disabled': '')
                 .addClass(node.state.selected ? 'node-selected' : '')
                 .addClass(node.searchResult ? 'search-result' : '')
-                .attr('data-nodeid', node.nodeId)
+                .attr('data-nodeId', node.nodeId)
+                .attr("id", node.id)
                 .attr('style', _this.buildStyleOverride(node));
 
             // Add indent/spacer to mimic tree structure

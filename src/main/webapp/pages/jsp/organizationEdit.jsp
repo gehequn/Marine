@@ -1,9 +1,10 @@
-<%@ page pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
 
     <title>主页</title>
 
@@ -14,6 +15,7 @@
     <link href="../../pages/css/bootstrap/style.css" rel="stylesheet">
     <link href="../../pages/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/bootstrap-dialog.min.css" rel="stylesheet">
+    <link href="../../pages/css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
 
 
     <!-- Mainly scripts -->
@@ -31,6 +33,7 @@
     <script type="text/javascript" src="../../pages/js/bootstrap-dialog.min.js"></script>
     <%--<script type="text/javascript" src="../../pages/js/demo/treeview-demo.js"></script>--%>
     <script type="text/javascript" src="../../pages/js/marine/organization.js"></script>
+    <%--<script type="text/javascript" src="../../pages/js/bootstrap-select.min.js"></script>--%>
 
 </head>
 <body>
@@ -68,29 +71,63 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">编辑区</h3>
                         </div>
-                        <!--编辑操作权限 start-->
                         <div class="panel-body right_content">
-                            <div  id="editShow">
-                                <div>
-                                    <div class="input-group margin-t-5">
-                                        <span class="input-group-addon" >名称:</span>
-
-                                        <input id="editName" type="text"  class="form-control" />
-                                    </div>
-                                </div>
-                                <div style="margin-top: 10px;">
-                                    <input id="Edit" class="btn btn-primary" type="button" value="确定" />
-                                    <input id="Edit_cancel" class="btn btn-default" type="button" style="margin-left:80px;display:none;" value="取消" />
-                                </div>
+                            <div>
+                                <table class="table table-bordered table-del" id="delTable">
+                                    <tbody>
+                                    <tr>
+                                        <td><span>名称:</span></td>
+                                        <td><input id="delNodeName" type="text" class="form-control" disabled="disabled"/><input type="hidden" value="" id="delNodeId"/></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <%--<div class="input-group margin-t-5">--%>
+                                <%--<span class="input-group-addon" >父节点:</span>--%>
+                                <%--<input id="addParentName" type="text"  class="form-control" />--%>
+                                <%--</div>--%>
+                                <table class="table table-bordered table-add" style="display:none;"  id="addTable">
+                                    <tbody>
+                                    <tr>
+                                        <td><span>上级节点:</span></td>
+                                        <td><input id="addParentName" type="text" class="form-control" disabled="disabled"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>节点名称:</span></td>
+                                        <td><input id="addNodeName" type="text" class="form-control"/></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-edit" style="display:none;"  id="editTable">
+                                    <tbody>
+                                    <tr>
+                                        <td><span>上级节点:</span></td>
+                                        <td>
+                                            <select class="bootstrap-select form-control parentNode-select">
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>节点名称:</span></td>
+                                        <td><input id="editNodeName" type="text" class="form-control"/><input type="hidden" id="editNodeId" value=""/></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <input id="editButton" class="btn btn-primary" type="button" value="确定"/>
+                                <%--<input id="Edit_cancel" class="btn btn-default" type="button" style="margin-left:80px;display:none;" value="取消" />--%>
                             </div>
                         </div>
-                        <!--编辑操作权限 end-->
                     </div>
                 </div>
             </div>
-            </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>
