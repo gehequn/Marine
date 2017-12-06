@@ -72,7 +72,7 @@ function setOperaNode(node){
         $('#addParentId').val(node.id);
     } else if (tableId == EDIT_OPERA_ID){
         $('#editNodeName').val(node.text);
-        $('#editParentId').val(node.id);
+        $('#editNodeId').val(node.id);
         var parentNods = $('#treeView').treeview('getParents',node);
         //清空select
         $('select.parentNode-select').html("");
@@ -182,16 +182,16 @@ function operaPanel(divType) {
     } else if (divType == EDIT_OPERA_ID) {
         var parentId = $("select.parentNode-select").val();
         var editNodeId = $("input#editNodeId").val();
-        var addNodeName = $("input#editNodeName").val();
-        console.log(parentId);
-        if (addNodeName && addNodeName != "" && editNodeId) {
+        var editNodeName = $("input#editNodeName").val();
+        alert(editNodeId);
+        if (editNodeName != "" && editNodeId!= "") {
             $.ajax({
                 url: "/Organization/editOrganization",
                 type: "POST",
                 dateType: "json",
                 data: {
                     orgId:editNodeId,
-                    orgName:addNodeName,
+                    orgName:editNodeName,
                     parentOrgId:parentId
                 },
                 success: function (map) {

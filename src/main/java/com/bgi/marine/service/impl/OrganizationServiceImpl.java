@@ -59,12 +59,13 @@ public class OrganizationServiceImpl implements OrganizationService {
     public void editOrganization(OrganizationDto organizationDto) throws Exception {
         Organization updateOrg = new Organization();
         Organization organization = organizationAgent.queryById(organizationDto.getOrgId());
-        if (!organizationDto.getOrgName().equals(organization.getOrgName())){
+        if (!organizationDto.getOrgName().equals(organization.getOrgName())) {
             updateOrg.setOrgName(organizationDto.getOrgName());
         }
         if (organizationDto.getParentOrgId() != organization.getParentId()){
             updateOrg.setParentId(organizationDto.getParentOrgId());
         }
+        updateOrg.setIsDeleted(organization.getIsDeleted());
         updateOrg.setId(new Long(organizationDto.getOrgId()));
         organizationAgent.update(updateOrg);
     }

@@ -33,7 +33,7 @@
           is_deleted = 0
     </select>
 
-    <select id="find" parameterType="java.lang.Integer" resultMap="OrgBaseMap">
+    <select id="find" parameterType="java.lang.Long" resultMap="OrgBaseMap">
         SELECT
           id,
           organization_name,
@@ -50,18 +50,18 @@
         UPDATE
           organization_info
         SET
-          organization_name = #{orgName}
+          is_deleted = #{isDeleted}
         <if test="parentId != null and parentId != ''">
             ,parent_id = #{parentId}
         </if>
-        <if test="isDeleted != null and isDeleted != ''">
-            ,is_deleted = #{isDeleted}
+        <if test="orgName != null and orgName != ''">
+            ,organization_name = #{orgName}
         </if>
         WHERE
           id = #{id}
     </update>
 
-    <delete id="delete" parameterType="java.lang.Integer">
+    <delete id="delete" parameterType="java.lang.Long">
         UPDATE
           organization_info
         SET
