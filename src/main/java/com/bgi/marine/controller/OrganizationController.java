@@ -77,6 +77,7 @@ public class OrganizationController {
     public ResponseMap editOrganization(@ModelAttribute OrganizationDto organizationDto){
         ResponseMap responseMap;
         try {
+            organizationService.editOrganization(organizationDto);
             responseMap= ResponseMap.builder().flag(Constants.SUCCESS_FLAG).build();
         }catch (Exception e){
             responseMap= ResponseMap.builder().flag(Constants.FAIL_FLAG).message(e.getMessage()).build();
@@ -90,6 +91,7 @@ public class OrganizationController {
     public ResponseMap delOrganization(@ModelAttribute OrganizationDto organizationDto){
         ResponseMap responseMap;
         try {
+            organizationService.delOrganization(organizationDto);
             responseMap= ResponseMap.builder().flag(Constants.SUCCESS_FLAG).build();
         }catch (Exception e){
             responseMap= ResponseMap.builder().flag(Constants.FAIL_FLAG).message(e.getMessage()).build();

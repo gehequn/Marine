@@ -32,4 +32,41 @@
         WHERE
           is_deleted = 0
     </select>
+
+    <select id="find" parameterType="java.lang.Integer" resultMap="OrgBaseMap">
+        SELECT
+          id,
+          organization_name,
+          organization_type,
+          parent_id,
+          is_deleted
+        FROM
+          organization_info
+        WHERE
+          id = #{id}
+    </select>
+    
+    <update id="update" parameterType="com.bgi.marine.bean.Organization">
+        UPDATE
+          organization_info
+        SET
+          organization_name = #{orgName}
+        <if test="parentId != null and parentId != ''">
+            ,parent_id = #{parentId}
+        </if>
+        <if test="isDeleted != null and isDeleted != ''">
+            ,is_deleted = #{isDeleted}
+        </if>
+        WHERE
+          id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        UPDATE
+          organization_info
+        SET
+          is_deleted = 1
+        WHERE
+          id = #{id}
+    </delete>
 </mapper>

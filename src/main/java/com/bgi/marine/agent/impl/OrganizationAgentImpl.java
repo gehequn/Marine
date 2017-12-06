@@ -34,4 +34,19 @@ public class OrganizationAgentImpl implements OrganizationAgent {
                 .parentId(organizationDto.getParentOrgId())
                 .build();
     }
+
+    @Override
+    public Organization queryById(int orgId) {
+        return organizationDao.find(new Long(orgId));
+    }
+
+    @Override
+    public int update(Organization organization) {
+        return organizationDao.update(organization);
+    }
+
+    @Override
+    public int delete(int orgId) {
+        return organizationDao.delete(new Long(orgId));
+    }
 }

@@ -56,13 +56,22 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
-    public OrganizationVo editOrganization(OrganizationDto organizationDto) throws Exception {
-        return null;
+    public void editOrganization(OrganizationDto organizationDto) throws Exception {
+        Organization updateOrg = new Organization();
+        Organization organization = organizationAgent.queryById(organizationDto.getOrgId());
+        if (!organizationDto.getOrgName().equals(organization.getOrgName())){
+            updateOrg.setOrgName(organizationDto.getOrgName());
+        }
+        if (organizationDto.getParentOrgId() != organization.getParentId()){
+            updateOrg.setParentId(organizationDto.getParentOrgId());
+        }
+        updateOrg.setId(new Long(organizationDto.getOrgId()));
+        organizationAgent.update(updateOrg);
     }
 
     @Override
     public void delOrganization(OrganizationDto organizationDto) throws Exception {
-
+        organizationAgent.delete(organizationDto.getOrgId());
     }
 
     @Override
@@ -97,7 +106,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     private void removeNode(int orgId, List<Organization> organizationList){
         for(int i = 0; i < organizationList.size(); i++) {
-            if (organizationList.get(i).getParentId() == orgId){
+            if (organizationList.get(i).getId() == orgId){
                 organizationList.remove(i);
                 break;
             }

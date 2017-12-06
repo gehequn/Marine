@@ -85,21 +85,18 @@ function setOperaNode(node){
                 if (map.flag == 0){
                     var appendStr = "";
                     var items = eval('(' + map.message + ')');
-                    console.log(items.length);
                     //存在父节点情况
                     if (parentNods.length >0) {
-                        for (var orgItem in items){
-                            console.log(orgItem.orgName);
-                            if (parentNods[0].id == orgItem.id){
-                                // appendStr += '<option value='+orgItem.id+' selected = "selected">'+orgItem.orgName+'</option>';
-                                appendStr += "<option value='"+orgItem.id+"' selected = 'selected'>"+orgItem.orgName+"</option>";
+                        for (var i in items){
+                            if (parentNods[0].id == items[i].id){
+                                appendStr += "<option value='"+items[i].id+"' selected = 'selected'>"+items[i].orgName+"</option>";
                             } else {
-                                appendStr += "<option value='"+orgItem.id+"'>"+orgItem.orgName+"</option>";
+                                appendStr += "<option value='"+items[i].id+"'>"+items[i].orgName+"</option>";
                             }
                         }
                     } else {
-                        for (var orgItem in items){
-                            appendStr += "<option value='"+orgItem.id+"'>"+orgItem.orgName+"</option>";
+                        for (var i in items){
+                            appendStr += "<option value='"+items[i].id+"'>"+items[i].orgName+"</option>";
                         }
                     }
                     $('select.parentNode-select').append(appendStr);
@@ -186,15 +183,20 @@ function operaPanel(divType) {
         var parentId = $("select.parentNode-select").val();
         var editNodeId = $("input#editNodeId").val();
         var addNodeName = $("input#editNodeName").val();
+        console.log(parentId);
         if (addNodeName && addNodeName != "" && editNodeId) {
             $.ajax({
                 url: "/Organization/editOrganization",
                 type: "POST",
                 dateType: "json",
-                data: {},
+                data: {
+                    orgId:editNodeId,
+                    orgName:addNodeName,
+                    parentOrgId:parentId
+                },
                 success: function (map) {
                     if (map.flag == 0) {
-
+                        window.location.href = "/Organization/init";
                     } else {
                         $.showMsgText(map.message);
                         return;
@@ -212,7 +214,22 @@ function operaPanel(divType) {
         }
         var delNodeId = $("input#delNodeId").val();
         if (delNodeId) {
-            //todo ajax
+            $.ajax({
+                url: "/Organization/delOrganization",
+                type: "POST",
+                dateType: "json",
+                data: {
+                    orgId:delNodeId
+                },
+                success:function (map) {
+                    if (map.flag ==0){
+                        $('#treeView').treeview('removeNode',node);
+                    } else {
+                        $.showMsgText(map.message);
+                        return;
+                    }
+                }
+            });
         } else {
             $.showMsgText('请选择删除的部门!');
             return;

@@ -9,4 +9,7 @@ import java.util.List;
 public interface OrganizationAgent {
     List<Organization> queryAllOrganization();
     OrganizationVo addOrganization(OrganizationDto organizationDto);
+    Organization queryById(int orgId);
+    int update(Organization organization);
+    int delete(int orgId);
 }
