@@ -1,5 +1,7 @@
 import com.bgi.marine.bean.vo.OrganizationVo;
+import com.bgi.marine.dto.OrganizationDto;
 import com.bgi.marine.javaEnum.Ajax;
+import com.bgi.marine.service.OrganizationService;
 import com.bgi.marine.util.CommonUtil;
 import org.aspectj.weaver.loadtime.Aj;
 import org.junit.Test;
@@ -7,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +18,9 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
 public class MyTest {
+
+    @Resource
+    private OrganizationService organizationService;
     @Test
     public void test(){
         OrganizationVo organizationVo1 = OrganizationVo.builder().id(1).orgName("1").parentId(0).build();
@@ -40,5 +46,12 @@ public class MyTest {
 //        organizationVoList.add(organizationVo9);
         CommonUtil.getTree(organizationVoList.get(0),organizationVoList,resultTree,true);
 //        System.out.print(resultTree.toString());
+    }
+
+    @Test
+    public void testGetUpList(){
+        OrganizationDto dto = new OrganizationDto();
+        dto.setOrgId(5);
+        organizationService.getOrgUpList(dto);
     }
 }

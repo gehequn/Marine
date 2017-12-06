@@ -3,6 +3,7 @@ package com.bgi.marine.service.impl;
 import com.bgi.marine.agent.OrganizationAgent;
 import com.bgi.marine.bean.Organization;
 import com.bgi.marine.bean.vo.OrganizationVo;
+import com.bgi.marine.dto.OrganizationDto;
 import com.bgi.marine.service.OrganizationService;
 import com.bgi.marine.util.CommonUtil;
 import org.slf4j.Logger;
@@ -35,7 +36,6 @@ public class OrganizationServiceImpl implements OrganizationService {
                 for (Organization organization : organizationList) {
                     organizationVoList.add(OrganizationVo.builder()
                             .id(new Long(organization.getId()).intValue())
-                            .orgCode(organization.getOrgCode())
                             .orgName(organization.getOrgName())
                             .parentId(organization.getParentId())
                             .childOrg(new ArrayList<>())
@@ -50,4 +50,57 @@ public class OrganizationServiceImpl implements OrganizationService {
         return resultTree;
     }
 
+    @Override
+    public OrganizationVo addOrganization(OrganizationDto organizationDto) throws Exception {
+        return organizationAgent.addOrganization(organizationDto);
+    }
+
+    @Override
+    public OrganizationVo editOrganization(OrganizationDto organizationDto) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void delOrganization(OrganizationDto organizationDto) throws Exception {
+
+    }
+
+    @Override
+    public List<OrganizationVo> getOrgUpList(OrganizationDto organizationDto) {
+        List<OrganizationVo> organizationVoList = new ArrayList<>();
+        List<Organization> organizationList = organizationAgent.queryAllOrganization();
+        if (organizationDto.getOrgId() != 0) {
+            removeNode(organizationDto.getOrgId(), organizationList);
+            removeChildOrg(organizationDto.getOrgId(), organizationList);
+        }
+        for (Organization organization : organizationList) {
+            organizationVoList.add(OrganizationVo.builder()
+                    .id(new Long(organization.getId()).intValue())
+                    .orgName(organization.getOrgName())
+                    .parentId(organization.getParentId())
+                    .childOrg(new ArrayList<>())
+                    .build());
+        }
+        return organizationVoList;
+    }
+
+    private void removeChildOrg(int orgId, List<Organization> organizationList) {
+        for (int i = 0; i < organizationList.size(); i++) {
+            if (organizationList.get(i).getParentId() == orgId) {
+                Organization organization = organizationList.get(i);
+                removeChildOrg(new Long(organization.getId()).intValue(), organizationList);
+                organizationList.remove(organization);
+                i--;
+            }
+        }
+    }
+
+    private void removeNode(int orgId, List<Organization> organizationList){
+        for(int i = 0; i < organizationList.size(); i++) {
+            if (organizationList.get(i).getParentId() == orgId){
+                organizationList.remove(i);
+                break;
+            }
+        }
+    }
 }

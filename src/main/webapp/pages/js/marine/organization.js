@@ -8,7 +8,10 @@ $(document).ready(function () {
             if (data.flag == 0) {
                 $('#treeView').treeview({
                     data: data.message,
-                    levels: 1
+                    levels: 1,
+                    onNodeSelected:function(event, node){
+                        setOperaNode(node);
+                    }
                 });
             }
         },
@@ -57,6 +60,61 @@ function setCenterHeight() {
     $(".right_content").height(centerHeight).css("overflow", "auto");
 };
 
+function setOperaNode(node){
+    var tableId = "";
+    $("table").each(function () {
+        if (!$(this).is(":hidden")) {
+            tableId = $(this).attr("id");
+        }
+    });
+    if (tableId == ADD_OPERA_ID) {
+        $('#addParentName').val(node.text);
+        $('#addParentId').val(node.id);
+    } else if (tableId == EDIT_OPERA_ID){
+        $('#editNodeName').val(node.text);
+        $('#editParentId').val(node.id);
+        var parentNods = $('#treeView').treeview('getParents',node);
+        //清空select
+        $('select.parentNode-select').html("");
+        $.ajax({
+            url:"/Organization/getOrgUpList",
+            type:"POST",
+            dateType:"json",
+            data:{orgId:node.id},
+            success:function (map) {
+                if (map.flag == 0){
+                    var appendStr = "";
+                    var items = eval('(' + map.message + ')');
+                    console.log(items.length);
+                    //存在父节点情况
+                    if (parentNods.length >0) {
+                        for (var orgItem in items){
+                            console.log(orgItem.orgName);
+                            if (parentNods[0].id == orgItem.id){
+                                // appendStr += '<option value='+orgItem.id+' selected = "selected">'+orgItem.orgName+'</option>';
+                                appendStr += "<option value='"+orgItem.id+"' selected = 'selected'>"+orgItem.orgName+"</option>";
+                            } else {
+                                appendStr += "<option value='"+orgItem.id+"'>"+orgItem.orgName+"</option>";
+                            }
+                        }
+                    } else {
+                        for (var orgItem in items){
+                            appendStr += "<option value='"+orgItem.id+"'>"+orgItem.orgName+"</option>";
+                        }
+                    }
+                    $('select.parentNode-select').append(appendStr);
+                } else {
+                    $.showMsgText(map.message);
+                    return;
+                }
+            }
+        });
+    } else {
+        $('#delNodeName').val(node.text);
+        $('#delNodeId').val(node.id);
+    }
+};
+
 $(function () {
 
     //设置组织树框高度
@@ -91,31 +149,67 @@ $(function () {
     });
 });
 
-function operaPanel(divType){
+function operaPanel(divType) {
     var node = $('#treeView').treeview('getSelected');
-    if (node.length == 0) {
-        $.showMsgText('请选择节点');
-        return;
-    }
+
+    //增加新部门
     if (divType == ADD_OPERA_ID) {
         var addNodeName = $("input#addNodeName").val().trim();
-        if (addNodeName && addNodeName!=""){
-            //todo ajax
+        if (addNodeName && addNodeName != "") {
+            $.ajax({
+                url: "/Organization/addOrganization",
+                type: "POST",
+                dateType: "json",
+                data: {
+                    orgName:addNodeName,
+                    parentOrgId:$('#addParentId').val(),
+                    parentOrgName:$('#addParentName').val()
+                },
+                success: function (map) {
+                    if (map.flag == 0) {
+                        var singleNode = {
+                            text: map.message.orgName,
+                            id: map.message.id
+                        };
+                        $('#treeView').treeview("addNode", [singleNode, node]);
+                    } else {
+                        $.showMsgText(map.message);
+                        return;
+                    }
+                }
+            });
         } else {
             $.showMsgText('请输入新增部门名称!');
             return;
         }
-    } else if (divType == EDIT_OPERA_ID){
+    } else if (divType == EDIT_OPERA_ID) {
         var parentId = $("select.parentNode-select").val();
         var editNodeId = $("input#editNodeId").val();
         var addNodeName = $("input#editNodeName").val();
-        if (addNodeName && addNodeName!="" && editNodeId) {
-            //todo ajax
+        if (addNodeName && addNodeName != "" && editNodeId) {
+            $.ajax({
+                url: "/Organization/editOrganization",
+                type: "POST",
+                dateType: "json",
+                data: {},
+                success: function (map) {
+                    if (map.flag == 0) {
+
+                    } else {
+                        $.showMsgText(map.message);
+                        return;
+                    }
+                }
+            });
         } else {
             $.showMsgText('请输入部门名称!');
             return;
         }
-    } else if (divType == DEL_OPERA_ID){
+    } else if (divType == DEL_OPERA_ID) {
+        if (node.length == 0) {
+            $.showMsgText('请选择节点');
+            return;
+        }
         var delNodeId = $("input#delNodeId").val();
         if (delNodeId) {
             //todo ajax

@@ -16,7 +16,6 @@ public class OrganizationVo implements Serializable {
     private static final long serialVersionUID = 5413189265644277787L;
 
     private int id;
-    private String orgCode;
     private String orgName;
     private int parentId;
     private List<OrganizationVo> childOrg;

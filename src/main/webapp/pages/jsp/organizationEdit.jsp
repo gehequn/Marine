@@ -13,7 +13,7 @@
     <link href="../../pages/css/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/animate.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/style.css" rel="stylesheet">
-    <link href="../../pages/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+    <link href="../../pages/css/plugins/treeview/bootstrap-treeview.min.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/bootstrap-dialog.min.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/bootstrap-select.min.css" rel="stylesheet">
 
@@ -91,7 +91,7 @@
                                     <tbody>
                                     <tr>
                                         <td><span>上级节点:</span></td>
-                                        <td><input id="addParentName" type="text" class="form-control" disabled="disabled"/></td>
+                                        <td><input id="addParentName" type="text" class="form-control" disabled="disabled"/><input type="hidden" id="addParentId" value=""/></td>
                                     </tr>
                                     <tr>
                                         <td><span>节点名称:</span></td>
