@@ -35,7 +35,11 @@ public class JsonUtil {
             if (organizationVo.getChildOrg() != null && organizationVo.getChildOrg().size() > 0) {
                 resultOrgJson += ",\"nodes\":[";
                 getChildOrganizationJson(organizationVo.getChildOrg());
-                resultOrgJson += "]}";
+                if (i == childOrgList.size() - 1) {
+                    resultOrgJson += "]}";
+                } else {
+                    resultOrgJson += "]},";
+                }
             } else {
                 if (i == childOrgList.size() - 1) {
                     resultOrgJson += "}";
