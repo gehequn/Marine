@@ -4,3 +4,4 @@ Marine.iml
 target
 src/test/resources/
 logs
+jdbc.properties
