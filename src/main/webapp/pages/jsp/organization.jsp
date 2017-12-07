@@ -10,7 +10,7 @@
     <link href="../../pages/css/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/animate.css" rel="stylesheet">
     <link href="../../pages/css/bootstrap/style.css" rel="stylesheet">
-    <link href="../../pages/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">
+    <link href="../../pages/css/plugins/treeview/bootstrap-treeview.min.css" rel="stylesheet">
 
     <script type="text/javascript" src="../../pages/js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="../../pages/js/bootstrap.min.js?v=3.4.0"></script>
