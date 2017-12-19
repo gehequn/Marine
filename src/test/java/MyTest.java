@@ -3,6 +3,7 @@ import com.bgi.marine.dto.OrganizationDto;
 import com.bgi.marine.javaEnum.Ajax;
 import com.bgi.marine.service.OrganizationService;
 import com.bgi.marine.util.CommonUtil;
+import com.bgi.marine.util.MD5Util;
 import org.aspectj.weaver.loadtime.Aj;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,5 +54,10 @@ public class MyTest {
         OrganizationDto dto = new OrganizationDto();
         dto.setOrgId(5);
         organizationService.getOrgUpList(dto);
+    }
+
+    @Test
+    public void testMD5(){
+        System.out.println(MD5Util.encode2hex("123456"));
     }
 }

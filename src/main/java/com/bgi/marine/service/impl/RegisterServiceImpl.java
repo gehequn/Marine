@@ -8,6 +8,7 @@ import com.bgi.marine.dao.UserDao;
 import com.bgi.marine.dto.RegisterDto;
 import com.bgi.marine.service.RegisterService;
 import com.bgi.marine.util.CommonUtil;
+import com.bgi.marine.util.MD5Util;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,6 +30,8 @@ public class RegisterServiceImpl implements RegisterService {
             //保存账户信息
             return responseMap;
         }
+        //MD5加密
+        registerDto.setPassword(MD5Util.encode2hex(registerDto.getPassword()));
         session.setAttribute("userId",Integer.parseInt(registerAgent.registerUser(registerDto).toString()));
         session.setAttribute("userName",registerDto.getUserName());
         HashMap<String,Object> map = new HashMap<>();

@@ -9,6 +9,7 @@ import com.bgi.marine.constants.LoginConstants;
 import com.bgi.marine.dto.LoginDto;
 import com.bgi.marine.service.LoginService;
 import com.bgi.marine.service.PrivilegeService;
+import com.bgi.marine.util.MD5Util;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,8 +34,7 @@ public class LoginServiceImpl implements LoginService {
             return responseMap;
         }
         UserVo userVo = loginAgent.queryByName(loginDto.getUserName());
-        //todo 密码md5加密
-        if (!userVo.getPassword().equals(loginDto.getPassword())) {
+        if (!MD5Util.encode2hex(loginDto.getPassword()).equals(userVo.getPassword())) {
             responseMap.setFlag(LoginConstants.WRONG_PASSWORD_FLAG);
             responseMap.setMessage(LoginConstants.WRONG_PASSWORD);
             return responseMap;
