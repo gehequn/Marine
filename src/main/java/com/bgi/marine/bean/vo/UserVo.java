@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserVo implements Serializable{
     private static final long serialVersionUID = 7990288180436786950L;
 
@@ -19,6 +20,7 @@ public class UserVo implements Serializable{
     private String nickName;
     private String password;
     private String emailAddress;
+    private String mobile;
     private int userType;
 
 }

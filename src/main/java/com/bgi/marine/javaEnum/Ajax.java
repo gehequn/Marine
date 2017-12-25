@@ -6,7 +6,8 @@ public enum Ajax {
     Organization_AddOrganization("/Organization/addOrganization"),
     Organization_EditOrganization("/Organization/editOrganization"),
     Organization_DelOrganization("/Organization/delOrganization"),
-    Organization_GetOrgUpList("/Organization/getOrgUpList");
+    Organization_GetOrgUpList("/Organization/getOrgUpList"),
+    User_Record("/User/record");
 
     private String url;
 

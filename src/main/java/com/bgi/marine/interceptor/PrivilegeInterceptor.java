@@ -46,7 +46,7 @@ public class PrivilegeInterceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        throw new PrivilegeException();
+        throw new PrivilegeException(requestUri);
     }
 
     @Override

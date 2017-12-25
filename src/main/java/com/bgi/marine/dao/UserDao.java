@@ -6,6 +6,8 @@ import com.bgi.marine.dao.common.BaseDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserDao extends BaseDao<User> {
 
@@ -16,4 +18,6 @@ public interface UserDao extends BaseDao<User> {
     UserVo queryByName(@Param("userName") String userName);
 
     UserVo queryById(@Param("userId") int userId);
+
+    List<User> queryAll();
 }

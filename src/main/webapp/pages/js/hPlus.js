@@ -27,11 +27,11 @@ $(document).ready(function () {
         label.toggleClass('todo-completed');
         return false;
     });
-
-    // Append config box / Only for demo purpose
-    $.get("skin-config.html", function (data) {
-        $('body').append(data);
-    });
+    //
+    // // Append config box / Only for demo purpose
+    // $.get("skin-config.html", function (data) {
+    //     $('body').append(data);
+    // });
 
     // minimalize menu
     $('.navbar-minimalize').click(function () {

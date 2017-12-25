@@ -5,6 +5,7 @@ var MarineTableInit = function(tableParams) {
         $("#" + tableParams.table).bootstrapTable({
             url : tableParams.url, // 请求后台的URL（*）
             method : tableParams.method?tableParams.method:'post', // 请求方式（*）
+            contentType : "application/x-www-form-urlencoded",
             toolbar : tableParams.toolbar?tableParams.toolbar:'#toolbar', // 工具按钮用哪个容器
             striped : tableParams.striped?tableParams.striped:true, // 是否显示行间隔色
             cache : tableParams.cache?tableParams.cache:false, // 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -43,6 +44,9 @@ var MarineTableInit = function(tableParams) {
                 temp[prop] = tableParams.param[prop];
             }
         }
+        // for (var prop in temp){
+        //     console.log(temp[prop]);
+        // }
         return temp;
     };
     return oTableInit;

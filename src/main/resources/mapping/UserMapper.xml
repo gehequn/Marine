@@ -71,4 +71,18 @@
           id = #{userId}
           AND is_deleted = 0
     </select>
+    
+    <select id="queryAll" resultType="com.bgi.marine.bean.User">
+        SELECT
+          id AS id,
+          user_name AS userName,
+          nick_name AS nikcName,
+          email_address AS emailAddress,
+          mobile AS mobile
+        FROM
+          user_info
+        WHERE
+          is_deleted = 0
+          AND user_type = 1
+    </select>
 </mapper>

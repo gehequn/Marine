@@ -1,6 +1,6 @@
 <%@ page import="com.bgi.marine.bean.vo.UserVo" %>
 <%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" %>
 <%
     UserVo userVo = (UserVo)request.getAttribute("userInfo");
 %>
@@ -10,12 +10,19 @@
     <title>项目管理系统</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../../pages/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="../css/bootstrap/style.css">
-    <link rel="stylesheet" href="../css/bootstrap/animate.css">
-    <script src="../../pages/js/jquery-2.1.1.min.js"></script>
-    <script src="../../pages/js/bootstrap.min.js"></script>
+    <!-- CSS样式 -->
+    <link href="../../pages/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../pages/css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../pages/css/bootstrap/animate.css" rel="stylesheet">
+    <link href="../../pages/css/bootstrap/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../pages/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../pages/js/bootstrap.min.js?v=3.4.0"></script>
+    <script type="text/javascript" src="../../pages/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script type="text/javascript" src="../../pages/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="../../pages/js/hPlus.js?v=2.2.0"></script>
+    <script type="text/javascript" src="../../pages/js/plugins/pace/pace.min.js"></script>
+    <script type="text/javascript" src="../../pages/js/marine/organization.js"></script>
 </head>
 <body>
 <div id="wrapper">
