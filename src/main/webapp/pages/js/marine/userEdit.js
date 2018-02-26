@@ -63,9 +63,17 @@ var ButtonInit = function () {
     return oInit;
 };
 
-function editUser() {
+function editUser(userId) {
     // console.log(userId);
-    $.FORM.showFormDialog({});
+    var queryParam = {};
+    queryParam.operaUserId = userId;
+    var showOption = {
+        dataUrl: "/User/userInfoInit",
+        param : queryParam,
+        readOnly : false,
+        dialogSize : BootstrapDialog.SIZE_WIDE
+    };
+    $.FORM.showFormDialog(showOption);
 }
 
 function delUser(userId) {

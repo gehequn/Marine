@@ -58,6 +58,19 @@ public class UserController {
         return "userInfo";
     }
 
+
+    @RequestMapping("/userInfoInit")
+    public String userInfoInit(HttpSession session, HttpServletRequest request,@ModelAttribute UserDto userDto) {
+//        Integer userId = (Integer) session.getAttribute(LoginConstants.USER_ID);
+//        UserVo user = userService.getUserInfo(userId);
+//        request.setAttribute("userInfo", user);
+        UserVo user = userService.getUserInfo(userDto.getOperaUserId());
+        request.setAttribute("operaUserInfo", user);
+
+        CommonUtil.setRequest(session, request);
+        return "userForm";
+    }
+
     @RequestMapping("/record")
     @ResponseBody
     public String record(@ModelAttribute UserDto userDto,HttpSession session) {

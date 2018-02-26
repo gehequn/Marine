@@ -20,6 +20,8 @@
     <%--<script type="text/javascript" src="../../pages/js/bootstrap-table-zh-CN.js"></script>--%>
     <script type="text/javascript" src="../../pages/js/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="../../pages/js/marine/common/marine.js"></script>
+    <script type="text/javascript" src="../../pages/js/marine/common/MarineForm.js"></script>
+    <script type="text/javascript" src="../../pages/js/bootstrap-dialog.min.js"></script>
     <script type="text/javascript" src="../../pages/js/marine/userEdit.js"></script>
 </head>
 <body>

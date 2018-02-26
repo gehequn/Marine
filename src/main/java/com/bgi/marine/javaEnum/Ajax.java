@@ -7,7 +7,8 @@ public enum Ajax {
     Organization_EditOrganization("/Organization/editOrganization"),
     Organization_DelOrganization("/Organization/delOrganization"),
     Organization_GetOrgUpList("/Organization/getOrgUpList"),
-    User_Record("/User/record");
+    User_Record("/User/record"),
+    User_UserInfoInit("/User/userInfoInit");
 
     private String url;
 
